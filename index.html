@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Ingresos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gestión de Ingresos</h1>
+            <div class="week-navigation">
+                <button id="prevWeek">← Semana Anterior</button>
+                <span id="currentWeek"></span>
+                <button id="nextWeek">Semana Siguiente →</button>
+            </div>
+        </header>
+
+        <section class="form-section">
+            <h2>Registro Diario</h2>
+            <form id="incomeForm">
+                <div class="form-group">
+                    <label for="date">Fecha:</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="startTime">Hora Entrada:</label>
+                    <input type="time" id="startTime" required>
+                </div>
+                <div class="form-group">
+                    <label for="endTime">Hora Salida:</label>
+                    <input type="time" id="endTime" required>
+                </div>
+                <div class="form-group">
+                    <label for="discounts">Descuentos ($):</label>
+                    <input type="number" id="discounts" step="0.01" min="0" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="extras">Extras ($):</label>
+                    <input type="number" id="extras" step="0.01" min="0" value="0">
+                </div>
+                <button type="submit">Guardar Registro</button>
+            </form>
+        </section>
+
+        <section class="records-section">
+            <h2>Registros de la Semana</h2>
+            <div class="table-container">
+                <table id="recordsTable">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Día</th>
+                            <th>HE</th>
+                            <th>HS</th>
+                            <th>Ganancia</th>
+                            <th>Descuentos</th>
+                            <th>Extras</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="summary-section">
+            <h2>Resumen Semanal</h2>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <label>Total Ganado:</label>
+                    <span id="totalEarned">$0.00</span>
+                </div>
+                <div class="summary-item">
+                    <label>Total Descuentos:</label>
+                    <span id="totalDiscounts">$0.00</span>
+                </div>
+                <div class="summary-item">
+                    <label>Total Extras:</label>
+                    <span id="totalExtras">$0.00</span>
+                </div>
+                <div class="summary-item total">
+                    <label>Efectivo Final:</label>
+                    <span id="finalAmount">$0.00</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="chart-section">
+            <h2>Gráfico Semanal</h2>
+            <canvas id="weeklyChart"></canvas>
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
